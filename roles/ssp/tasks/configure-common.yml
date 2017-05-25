@@ -148,6 +148,10 @@
   when: "'cron' in ssp_mods_enabled"
   become: yes
 
+# FIXME: Need a way to specify env MAILTO in previous cron jobs; multiple ugly options may exist:
+# https://stackoverflow.com/questions/38635350/how-to-add-mailto-to-a-cron-d-cron-file-in-ansible
+# After that, consider removing stdout/stderr redirect.
+
 #TODO- name: Refresh SSP remote SAML metadata
 #  shell: "curl -k --silent \"https://localhost/{{ ssp_alias }}/module.php/cron/cron.php?key={{ ssp_mod_cron_secret }}&tag={{ item }}\" > /dev/null 2>&1"
 #  with_items:
